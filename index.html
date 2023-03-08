@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Start Page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="spped-dial">
+            <a href="https://www.youtube.com/" class="speed-dial-container"><div class="container-element"></div><p>Youtube</p></a>
+            <a href="www.gmail.com" class="speed-dial-container"><div class="container-element"></div><p>Gmail</p></a>
+            <a href="www.chess.com" class="speed-dial-container"><div class="container-element"></div><p>Chess</p></a>
+            <a href="www.facebook.com" class="speed-dial-container"><div class="container-element"></div><p>Facebook</p></a>
+        </div>
+        <div class="search">
+            <div class="search-box">
+                <p><img src="google-search.webp"></p>
+                <input type="text" placeholder="Search anything" id="google" />
+                <button id="google-search-button" class="search-button"onclick="googleSearch();" type="button">
+                    <img src="search.png" alt="search">
+                </button>
+            </div>
+            <div class="search-box">
+                <p><img src="bing-search.webp"></p>
+                <input type="text" placeholder="Search anything" id="bing" />
+                <button id="bing-search-button" class="search-button" onclick="bingSearch();" type="button">
+                    <img src="search.png" alt="search">
+                </button>
+            </div>
+        </div>
+        <div class="app-container">
+            <div class="app-container-element"><a href="">
+                <img src="github.png"><div>Github</div><div class="link">https://github.com/</div>
+            </a></div>
+            <div class="app-container-element"><a href="">
+                <img src="github.png"><div>Cloudflare</div><div class="link">https://dash.cloudflare.com</div>
+            </a></div>
+            <div class="app-container-element"><a href="">
+                <img src="github.png"><div>Github</div><div class="link">https://aryan9456.github.io/portfolio/</div>
+            </a></div>
+            <div class="app-container-element"><a href="">
+                <img src="github.png"><div>Github</div><div class="link">https://github.com/</div>
+            </a></div>
+            <div class="app-container-element"><a href="">
+                <img src="github.png"><div>Github</div><div class="link">https://github.com/</div>
+            </a></div>
+            <div class="app-container-element"><a href="">
+                <img src="github.png"><div>Github</div><div class="link">https://github.com/</div>
+            </a></div>
+            <div class="app-container-element"><a href="">
+                <img src="github.png"><div>Github</div><div class="link">https://github.com/</div>
+            </a></div>
+            <div class="app-container-element"><a href="">
+                <img src="github.png"><div>Github</div><div class="link">https://github.com/</div>
+            </a></div>
+            <div class="app-container-element"><a href="">
+                <img src="github.png"><div>Github</div><div class="link">https://github.com/</div>
+            </a></div>
+            <div class="app-container-element"><a href="">
+                <img src="github.png"><div>Github</div><div class="link">https://github.com/</div>
+            </a></div>
+            <div class="app-container-element"><a href="">
+                <img src="github.png"><div>Github</div><div class="link">https://github.com/</div>
+            </a></div>
+            <div class="app-container-element"><a href="">
+                <img src="github.png"><div>Github</div><div class="link">https://github.com/</div>
+            </a></div>
+        </div>
+    </div>
+</body>
+<script>
+    function googleSearch()
+    {
+        var text=document.getElementById("google").value;
+        var cleanQuery = text.replace(" ","+",text);
+        var url='http://www.google.com/search?q='+cleanQuery;
+        window.location.href=url;
+    }
+    function bingSearch()
+    {
+        var text=document.getElementById("bing").value;
+        var cleanQuery = text.replace(" ","+",text);
+        var url='http://www.bing.com/search?q='+cleanQuery;
+        window.location.href=url;
+    }
+    var input = document.getElementById("bing");
+    input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("bing-search-button").click();
+  }
+});
+    var input = document.getElementById("google");
+    input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("google-search-button").click();
+  }
+});
+</script>
+</html>
