@@ -11,9 +11,9 @@
     <div class="container">
         <div class="speed-dial">
             <a href="https://www.youtube.com/" class="speed-dial-container"><div class="container-element"></div><p>Youtube</p></a>
-            <a href="www.gmail.com" class="speed-dial-container"><div class="container-element"></div><p>Gmail</p></a>
-            <a href="www.chess.com" class="speed-dial-container"><div class="container-element"></div><p>Chess</p></a>
-            <a href="www.facebook.com" class="speed-dial-container"><div class="container-element"></div><p>Facebook</p></a>
+            <a href="https://www.gmail.com" class="speed-dial-container"><div class="container-element"></div><p>Gmail</p></a>
+            <a href="https://www.chess.com" class="speed-dial-container"><div class="container-element"></div><p>Chess</p></a>
+            <a href="https://www.facebook.com" class="speed-dial-container"><div class="container-element"></div><p>Facebook</p></a>
         </div>
         <div class="search">
             <div class="search-box">
@@ -32,23 +32,23 @@
             </div>
         </div>
         <div class="app-container">
-            <div class="app-container-element"><a href="">
+            <div class="app-container-element"><a href="https://github.com/">
                 <img src="github.png"><div>Github</div><div class="link">https://github.com/</div>
             </a></div>
-            <div class="app-container-element"><a href="">
+            <div class="app-container-element"><a href="https://dash.cloudflare.com">
                 <img src="cloudflare.webp"><div>Cloudflare</div><div class="link">https://dash.cloudflare.com</div>
             </a></div>
-            <div class="app-container-element"><a href="">
+            <div class="app-container-element"><a href="https://aryan9456.github.io/portfolio/">
                 <img src="portfolio.webp"><div>Portfolio</div><div class="link">https://aryan9456.github.io/portfolio/</div>
             </a></div>
-            <div class="app-container-element"><a href="">
-                <img src="github.png"><div>Github</div><div class="link">https://github.com/</div>
+            <div class="app-container-element"><a href="https://glbg.servergi.com:8072/ISIMGLB/Login">
+                <img src="gl.webp"><div>Student Sim</div><div class="link">https://glbg.servergi.com:8072/ISIMGLB/Login</div>
             </a></div>
-            <div class="app-container-element"><a href="">
-                <img src="github.png"><div>Github</div><div class="link">https://github.com/</div>
+            <div class="app-container-element"><a href="https://www.hackerrank.com/dashboard/">
+                <img src="hacker.svg"><div>Hacker Rank</div><div class="link">https://www.hackerrank.com/dashboard/</div>
             </a></div>
-            <div class="app-container-element"><a href="">
-                <img src="github.png"><div>Github</div><div class="link">https://github.com/</div>
+            <div class="app-container-element"><a href="https://stackoverflow.com/">
+                <img src="github.png"><div>Stackoverflow</div><div class="link">https://stackoverflow.com/</div>
             </a></div>
         </div>
         <div class="weather">
@@ -87,6 +87,20 @@
     event.preventDefault();
     document.getElementById("google-search-button").click();
   }
+});
+const google = document.getElementById('google');
+const bing = document.getElementById('bing');
+
+  document.addEventListener('keyup', (event) => {
+    if ((event.key>="a" && event.key<="z" )) {
+      if (document.activeElement !== google && !event.ctrlKey && !event.altkey && document.activeElement !== bing) {
+        google.focus();
+        google.value += event.key;
+}}
+    if (event.ctrlKey && event.key === "b") {
+    event.preventDefault();
+    bing.focus();
+}
 });
 </script>
 </html>

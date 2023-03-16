@@ -21,7 +21,7 @@
     background: url(walpaper2.jpg),url(walpaper2.webp);
     background-size: cover;
     background-position: center;
-    overflow: scroll;
+    overflow: hidden;
   }
  .search{
     display: flex;
