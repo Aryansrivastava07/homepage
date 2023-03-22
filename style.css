@@ -22,87 +22,83 @@
     background-size: cover;
     background-position: center;
     overflow: hidden;
-  }
- .search{
-    display: flex;
-    flex-direction: row;
-    gap: 60px;
+    display:grid;
+    grid-auto-rows: max-content;
+    place-items: center;
     justify-content: center;
+    align-items: center;
   }
+
   .speed-dial{
+    margin: 5vh 0;
     display: grid;
     grid-template-columns: repeat(4,9vw);
-    grid-auto-rows: 12vh;
+    height: fit-content;
     gap: 60px;
-    place-content: center;
+    place-items: center;
   }
-  .container-element{
-    margin-top: 40px;
+  .speed-dial-element{
     border-radius: 5px 1px;
     height: 12vh;
     width: 9vw;
     box-shadow: 1px 2px 2px 2px rgba(193, 82, 82, 0.406);
   }
-  .speed-dial-container:hover{
+  .speed-dial-element:hover,.speed-dial-element:hover ~ p{
     cursor: pointer;
-    /* height:12.5vh;
-    width: 9.5vw; */
     scale: 1.05;
     transition: 0.2s;
   }
-  .speed-dial-container:active{
+  .speed-dial-element:active,.speed-dial-element:active ~ p{
     scale: 1;
   }
-  .speed-dial-container:nth-child(1) .container-element{
+  .speed-dial-element:hover ~ p{
+    transform: translateY(2px);
+  }
+  .speed-dial a:first-child  .speed-dial-element{
     box-shadow: 1px 2px 2px 2px rgba(193, 82, 82, 0.406);
     background:url(youtube.jpg),black;
     background-position: center;
     background-size: cover;
   }
-  .speed-dial-container:nth-child(2) .container-element{
+  .speed-dial a:nth-child(2) .speed-dial-element{
     box-shadow: 1px 2px 2px 2px rgb(177, 149, 97,.5);
     background:url(gmail.webp),black;
     background-position: center;
     background-size: cover;
   }
-  .speed-dial-container:nth-child(3) .container-element{
+  .speed-dial a:nth-child(3) .speed-dial-element{
     box-shadow: 1px 2px 2px 2px rgb(141, 144, 141);
     background:url(chess.jpg),black;
     background-position: center;
     background-size: cover;
   }
-  .speed-dial-container:nth-child(4) .container-element{
+  .speed-dial a:nth-child(4) .speed-dial-element{
     box-shadow: 1px 2px 2px 2px rgba(3, 1, 18, 0.7);
     background:url(facebook.webp),black;
     background-position: center;
     background-size: cover;
   }
-  .speed-dial-container{
-    height: 15vh;
-  }
-  .speed-dial-container p{
+
+  .speed-dial p{
     text-align: center;
     color: white;
     font-size: 15px;
     padding:10px 20px;
   }
-  .search{
-    margin-top: 40px;
-  }
+
   .search-box{
     height: fit-content;
     max-height: 8vh;
-    width: 35vw;
-    margin:60px 30px 25px 30px;
-    background-color: transparent;
+    width: max-content;
+    max-width: 70vw;
+    background-color:transparent;
     display: flex;
     flex-direction: row;
-    overflow: hidden;
   }
   .search-box::before{
     content: '';
     height: 3px;
-    width: 30vw;
+    width: 50vw;
     position: absolute;
     margin: 7vh 5vw;
     background-color: rgba(255, 255, 255, 0.488);
@@ -119,14 +115,14 @@
     transition: 0.7s ease-in;
   }
   .search-box:has(input:focus)::after{
-    width: 30vw;
+    width: 50vw;
   }
   .search-box:has(input:focus) .search-button,.search-box:not(:has(input:placeholder-shown)) .search-button {
       filter: invert(1);
       transition-delay: 0.75s;
    } 
    .search-box:not(:has(input:placeholder-shown))::after{
-    width: 30vw;
+    width: 50vw;
    }
 
   .search-box p img{
@@ -138,11 +134,10 @@
     background-color: transparent;
     border: none;
     box-shadow: none;
-    width: 28vw;
+    width: 47vw;
     caret-color: rgb(170, 164, 164);
     font-size: 15px;
     color: aliceblue;
-    
   }
   .search-box input::placeholder{
     padding-left: 10px;
@@ -169,8 +164,8 @@
     display: none;
   }
   .app-container{
+    margin: 5vh 0;
     height: 40vh;
-    margin-left: 12vw;
     display: grid;
     grid-template-columns: repeat(2,25vw);
     grid-auto-rows: 12vh;

@@ -5,21 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="res.css">
     <title>Start Page</title>
 </head>
 <body>
     <div class="container">
         <div class="speed-dial">
-            <a href="https://www.youtube.com/" class="speed-dial-container"><div class="container-element"></div><p>Youtube</p></a>
-            <a href="https://www.gmail.com" class="speed-dial-container"><div class="container-element"></div><p>Gmail</p></a>
-            <a href="https://www.chess.com" class="speed-dial-container"><div class="container-element"></div><p>Chess</p></a>
-            <a href="https://www.facebook.com" class="speed-dial-container"><div class="container-element"></div><p>Facebook</p></a>
+            <a href="https://www.youtube.com/"><div class="speed-dial-element"></div><p>Youtube</p></a>
+            <a href="https://www.gmail.com"><div class="speed-dial-element"></div><p>Gmail</p></a>
+            <a href="https://www.chess.com"><div class="speed-dial-element"></div><p>Chess</p></a>
+            <a href="https://www.facebook.com"><div class="speed-dial-element"></div><p>Facebook</p></a>
         </div>
-        <div class="search">
-            <div class="search-box">
-                <p><img src="google-search.webp"></p>
+            <!-- <div class="search-box">
+                <p>
+                    <img src="google-search.webp" id="google_img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCE8Ofe3duyxd5_LVklR-R-vql2jCiX_LtUw&usqp=CAU" style="display:none" id="youtube_img">
+                </p>
                 <input type="text" placeholder="Search anything" id="google" />
-                <button id="google-search-button" class="search-button"onclick="googleSearch();" type="button">
+                <button id="google-search-button" class="search-button" onclick="googleSearch();" type="button">
                     <img src="search.png" alt="search">
                 </button>
             </div>
@@ -29,7 +32,18 @@
                 <button id="bing-search-button" class="search-button" onclick="bingSearch();" type="button">
                     <img src="search.png" alt="search">
                 </button>
-            </div>
+            </div> -->
+            <!--experimental-->
+         <div class="search-box">
+            <p>
+                <img src="bing-search.webp" id="bing_img" style="display:none">
+                <img src="google-search.webp" id="google_img">
+                <img src="youtube_img.webp" style="display:none" id="youtube_img">
+            </p>
+            <input type="text" placeholder="Search anything" id="google" />
+            <button id="google-search-button" class="search-button" onclick="googleSearch();" type="button">
+                <img src="search.png" alt="search">
+            </button>
         </div>
         <div class="app-container">
             <div class="app-container-element"><a href="https://github.com/">
@@ -60,27 +74,43 @@
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
     </script>
 <script>
+    var x=0;
+     document.addEventListener('keyup', (event) => {
+        if (event.ctrlKey && event.key === "y") {
+             x=1;
+             document.getElementById("youtube_img").style.cssText = 'display:block;';
+             document.getElementById("bing_img").style.cssText = 'display:none;';
+             document.getElementById("google_img").style.cssText = 'display:none;';
+        }
+        else if(event.ctrlKey && event.key === "x"){
+            x=0;
+            document.getElementById("youtube_img").style.cssText = 'display:none;';
+            document.getElementById("bing_img").style.cssText = 'display:none;';
+             document.getElementById("google_img").style.cssText = 'display:block;';
+        }
+        else if(event.ctrlKey && event.key === "b"){
+            x=2;
+            document.getElementById("youtube_img").style.cssText = 'display:none;';
+            document.getElementById("bing_img").style.cssText = 'display:block;';
+             document.getElementById("google_img").style.cssText = 'display:none;';
+        }
+    });
     function googleSearch()
     {
         var text=document.getElementById("google").value;
         var cleanQuery = text.replace(" ","+",text);
-        var url='http://www.google.com/search?q='+cleanQuery;
-        window.location.href=url;
+        if(x===1){
+        var url='http://www.youtube.com/search?q=';
+        }
+        else if(x===0){
+            var url='http://www.google.com/search?q=';
+        }
+        else if(x===2){
+            var url='http://www.bing.com/search?q=';
+        }
+        var see=url+cleanQuery;
+        window.location.href=see;
     }
-    function bingSearch()
-    {
-        var text=document.getElementById("bing").value;
-        var cleanQuery = text.replace(" ","+",text);
-        var url='http://www.bing.com/search?q='+cleanQuery;
-        window.location.href=url;
-    }
-    var input = document.getElementById("bing");
-    input.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-    event.preventDefault();
-    document.getElementById("bing-search-button").click();
-  }
-});
     var input = document.getElementById("google");
     input.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
@@ -89,18 +119,12 @@
   }
 });
 const google = document.getElementById('google');
-const bing = document.getElementById('bing');
-
   document.addEventListener('keyup', (event) => {
     if ((event.key>="a" && event.key<="z" )) {
-      if (document.activeElement !== google && !event.ctrlKey && !event.altkey && document.activeElement !== bing) {
+      if (document.activeElement !== google && !event.ctrlKey && !event.altkey ) {
         google.focus();
         google.value += event.key;
-}}
-    if (event.ctrlKey && event.key === "b") {
-    event.preventDefault();
-    bing.focus();
-}
+}} 
 });
 </script>
 </html>
