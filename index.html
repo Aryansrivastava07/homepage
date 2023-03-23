@@ -6,34 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="res.css">
+    <link rel="img" href="walpaper2.jpg" loading="lazy">
     <title>Start Page</title>
 </head>
-<body>
-    <div class="container">
+<body class="befback" id="lazyload">
+    <div class="container" >
         <div class="speed-dial">
             <a href="https://www.youtube.com/"><div class="speed-dial-element"></div><p>Youtube</p></a>
             <a href="https://www.gmail.com"><div class="speed-dial-element"></div><p>Gmail</p></a>
             <a href="https://www.chess.com"><div class="speed-dial-element"></div><p>Chess</p></a>
             <a href="https://www.facebook.com"><div class="speed-dial-element"></div><p>Facebook</p></a>
         </div>
-            <!-- <div class="search-box">
-                <p>
-                    <img src="google-search.webp" id="google_img">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCE8Ofe3duyxd5_LVklR-R-vql2jCiX_LtUw&usqp=CAU" style="display:none" id="youtube_img">
-                </p>
-                <input type="text" placeholder="Search anything" id="google" />
-                <button id="google-search-button" class="search-button" onclick="googleSearch();" type="button">
-                    <img src="search.png" alt="search">
-                </button>
-            </div>
-            <div class="search-box">
-                <p><img src="bing-search.webp"></p>
-                <input type="text" placeholder="Search anything" id="bing" />
-                <button id="bing-search-button" class="search-button" onclick="bingSearch();" type="button">
-                    <img src="search.png" alt="search">
-                </button>
-            </div> -->
-            <!--experimental-->
          <div class="search-box">
             <p>
                 <img src="bing-search.webp" id="bing_img" style="display:none">
@@ -64,8 +47,13 @@
             <div class="app-container-element"><a href="https://stackoverflow.com/">
                 <img src="stack.png"><div>Stackoverflow</div><div class="link">https://stackoverflow.com/</div>
             </a></div>
+            <div class="social">
+                <a href="https://www.instagram.com/"><div class="social-media"></div></a>
+                <a href="https://www.facebook.com/"><div class="social-media"></div></a>
+                <a href="https://in.linkedin.com/"><div class="social-media"></div></a>
+            </div>
         </div>
-        <div class="weather">
+        <div class="weather" id="loadlazy">
             <a class="weatherwidget-io" href="https://forecast7.com/en/28d4777d50/greater-noida/" data-label_1="" data-label_2="" data-icons="Climacons Animated" data-mode="Current" data-theme="dark" data-basecolor="transparent" data-textcolor="#e8e7e7b1" ></a>
         </div>
     </div>
@@ -126,5 +114,18 @@ const google = document.getElementById('google');
         google.value += event.key;
 }} 
 });
+setTimeout(function () {
+    document.getElementById("loadlazy").style.cssText = 'display:block';
+}, 5000);
+
+setTimeout(function () {
+var downloadingImage = new Image();
+downloadingImage.onload = function(){
+    document.getElementById("lazyload").classList.add("aftback");
+    document.getElementById("lazyload").classList.remove("befback");
+    console.log("hello");
+};
+downloadingImage.src = "walpaper2.jpg";
+}, 2000);
 </script>
 </html>
